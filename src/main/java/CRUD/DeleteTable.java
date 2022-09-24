@@ -1,12 +1,11 @@
-// HBase
-
+package CRUD;// HBase
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Admin;
 import org.apache.hadoop.hbase.client.Connection;
 import org.apache.hadoop.hbase.client.ConnectionFactory;
-
+// Java
 import java.io.IOException;
 
 public class DeleteTable {
@@ -15,10 +14,12 @@ public class DeleteTable {
         Configuration config = HBaseConfiguration.create();
         // Connection factory manages creation of connections to clusters using config above
         Connection connection = ConnectionFactory.createConnection(config);
-        try{
-            // Admin for commands
+
+        // Automatic resource management - Closes the connection, without a "finally" block
+        try(connection) {
+            // Admin obj for command permission
             Admin admin = connection.getAdmin();
-            // Retrieve table & column families
+            // Table name for admin obj
             TableName tableName = TableName.valueOf("census");
 
             // If table does NOT exist, create it
@@ -34,10 +35,7 @@ public class DeleteTable {
             }else{
                 System.out.println("Table does not exist.  Closing connection!");
             }
-
-        }finally {
-            // Always close the connection after use
-            connection.close();
+            // Automatic resource management - Closes the connection, without a "finally" block
         }
     }
 }
