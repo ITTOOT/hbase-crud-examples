@@ -13,9 +13,9 @@ public class Main {
     // Entry point
     public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException {
         // Base for all Hadoop ecosystem config objects
-        Configuration config=HBaseConfiguration.create();
+        Configuration config = HBaseConfiguration.create();
         // Needs to know which archive holds mapper and reducer classes
-        Job job = Job.getInstance(config);
+        Job job = Job.getInstance(config, "summary");
         job.setJarByClass(Main.class); // Archive that holds Main, also holds Mapper & Reducer
         // Tables
         String sourceTable = "census";

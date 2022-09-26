@@ -1,3 +1,16 @@
+HADOOP
+cd C:\hadoop-x.x.x\sbin
+
+Start;
+start-all.cmd
+OR
+start-dfs.cmd
+start-yarn.cmd
+
+MapReduce
+hadoop jar hbase.jar mapreduce.Main
+
+HBASE
 Change the directory;
 cd C:\cygwin64\HBase\hbase-x.x.x\bin
 

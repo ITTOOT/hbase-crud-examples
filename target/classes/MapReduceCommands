@@ -1,16 +1,3 @@
 Output data table
 
 create 'summary', 'marital_status'
-
-// Package into jar
-> File
-> Project Structure
-> Artifacts
-> +
-> JAR
-> From modules with dependencies
-> Select the location of the "Main" class
-> OK
-> Build
-> Build Artifacts
-> Clean
